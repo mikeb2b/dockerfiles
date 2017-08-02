@@ -7,11 +7,8 @@ RUN zypper install -y java-1_8_0-openjdk
 RUN zypper install -y sudo
 
 
-# Install rhnpush
-RUN zypper install -y rhnpush
-
 # Install a basic SSH server
-RUN yum install -y openssh-server
+RUN yum install -y openssh
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd
 RUN mkdir -p /var/run/sshd
 RUN /usr/bin/ssh-keygen -A

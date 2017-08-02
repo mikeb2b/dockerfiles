@@ -14,16 +14,5 @@ RUN mkdir -p /var/run/sshd
 RUN /usr/bin/ssh-keygen -A
 
 # Add user sumapusher to the image
-RUN adduser sumapusher -m -s /bin/bash
 RUN mkdir /home/sumapusher/.ssh
 RUN mkdir /home/sumapusher/rpmbuild
-COPY /files/authorized_keys /home/sumapusher/.ssh/authorized_keys
-COPY /files/buildsvr-filepush /home/sumapusher/.ssh/buildsvr-filepush
-RUN chown -R sumapusher.sumapusher /home/sumapusher
-RUN chmod 600 /home/sumapusher/.ssh/authorized_keys
-RUN chmod 700 /home/sumapusher/.ssh
-RUN echo "sumapusher ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-# expose ssh
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]

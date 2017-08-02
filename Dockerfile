@@ -1,20 +1,14 @@
 ## DOCKER CONTAINER TO PUSH PACKAGES TO SUSE MANAGER ##
 
-FROM centos:latest
-MAINTAINER Mike Byrne <michael.byrne@officedepot.com>
+FROM opensuse:latest
+MAINTAINER Mike Byrne <mbbyrne@yahoo.com>
 
-# Make sure the package repository is up to date.
-RUN yum -y update
-RUN yum -y upgrade
-RUN yum install -y java-1.8.0-openjdk
-RUN yum install -y sudo
-RUN yum install -y openssh-clients
+RUN zypper install -y java-1.8.0-openjdk
+RUN zypper install -y sudo
 
-COPY /files/Spacewalk-Tools.repo /etc/yum.repos.d/
-RUN yum makecache fast
 
 # Install rhnpush
-RUN yum install -y rhnpush
+RUN zypper install -y rhnpush
 
 # Install a basic SSH server
 RUN yum install -y openssh-server

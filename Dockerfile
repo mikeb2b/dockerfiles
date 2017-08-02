@@ -3,7 +3,7 @@
 FROM opensuse:latest
 MAINTAINER Mike Byrne <mbbyrne@yahoo.com>
 
-RUN zypper install -y java-1.8.0-openjdk
+RUN zypper install -y java-1_8_0-openjdk
 RUN zypper install -y sudo
 
 

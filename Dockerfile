@@ -1,4 +1,4 @@
-## DOCKER CONTAINER TO PUSH PACKAGES TO SUSE MANAGER ##
+## DOCKER CONTAINER TO PUSH PACKAGES TO Satellite/Spacewalk/SUSE Mgr ##
 
 FROM opensuse:latest
 MAINTAINER Mike Byrne <mbbyrne@yahoo.com>
